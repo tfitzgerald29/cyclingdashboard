@@ -68,7 +68,7 @@ futuredate = f''' '{datetime.date.today() + datetime.timedelta(days=90)}' '''
 new_files=CyclingDataPipes.processnewfiles()
 existing_files = CyclingDataPipes.readin_existingFiles()
 
-if len(os.listdir(f"/Users/tylerfitzgerald/Downloads/"))>0:
+if len(os.listdir(f"/Users/.../Downloads/"))>0:
     finalfile = CyclingDataPipes.create_new_file(newFile=new_files,ExistingFile=existing_files)
     CyclingDataPipes.write_out_file(finalfile)
     fd = CyclingDataPipes.FutureDates('2022-01-01',futuredate)
