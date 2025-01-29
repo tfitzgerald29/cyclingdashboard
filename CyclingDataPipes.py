@@ -27,7 +27,7 @@ import webbrowser
 
 def processnewfiles() -> list:
     mega_list = []
-    with os.scandir(f"/Users/tylerfitzgerald/Downloads/") as path:
+    with os.scandir(f"/Users/.../Downloads/") as path:
         for entry in path:
             if entry.name.endswith(".fit") and entry.is_file():
                 stream = Stream.from_file(entry.path)
@@ -77,12 +77,12 @@ def processnewfiles() -> list:
     return mega_list
 
 def readin_existingFiles() -> json:
-    path = "/Users/tylerfitzgerald/Documents/activities/output/Data_files/"
+    path = "/Users/.../Documents/activities/output/Data_files/"
     files = os.listdir(path)
     paths = [os.path.join(path, basename) for basename in files]
     currentfile = max(paths, key=os.path.getctime)
     currentdatafile = os.path.basename(currentfile).replace("'","")
-    z = open(f'''/Users/tylerfitzgerald/Documents/activities/output/Data_files/{currentdatafile}''')
+    z = open(f'''/Users/.../Documents/activities/output/Data_files/{currentdatafile}''')
     all_activities=json.load(z)
     return all_activities
 
@@ -101,7 +101,7 @@ def write_out_file(outfile) -> json:
     for k in outfile:
         MaxDateGetter.append(datetime.strptime(k['timestamp'],'%Y-%m-%d').date())
     maxDate = str(np.max(MaxDateGetter)).replace("-","")
-    with open(f"/Users/tylerfitzgerald/Documents/activities/output/Data_files/HL_Summary_{maxDate}.json", "w") as of: 
+    with open(f"/Users/.../Documents/activities/output/Data_files/HL_Summary_{maxDate}.json", "w") as of: 
         json.dump(outfile, of)
 
 def FutureDates(startdt,enddt) -> object:
